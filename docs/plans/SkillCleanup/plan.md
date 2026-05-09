@@ -1,5 +1,7 @@
 # Skill Cleanup — Remove Sibling-Project-Specific References
 
+**Feature Spec:** None
+
 ## Context
 
 Skills in `.claude/skills/` were extracted from a sibling project's codebase and contain app-specific references (entity names, package names, service names, file paths, port numbers) that make them non-portable. 45 of 57 skill files contain leakage. This cleanup generalizes all skills so they work for any project using this skill library.
