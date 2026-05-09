@@ -29,6 +29,10 @@ namespace Fokus.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ExcludedFromScopeStatuses")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("WorkflowStages")
                         .IsRequired()
                         .HasColumnType("TEXT");
