@@ -55,6 +55,9 @@ namespace Fokus.Persistence.Migrations
                     b.Property<int>("PlanningWindowDays")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("QualityHealthWeight")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("SyncBackSprintCount")
                         .HasColumnType("INTEGER");
 
@@ -553,6 +556,10 @@ namespace Fokus.Persistence.Migrations
                     b.Property<DateTime?>("LastModifiedOn")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ParentTicketKey")
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Priority")
                         .IsRequired()
                         .HasMaxLength(64)
@@ -639,10 +646,70 @@ namespace Fokus.Persistence.Migrations
                                 .HasForeignKey("AppSettingsId");
                         });
 
+                    b.OwnsOne("Fokus.Domain.QaHealthThresholdConfig", "QaHealthThresholds", b1 =>
+                        {
+                            b1.Property<int>("AppSettingsId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<decimal>("CoverageAmber")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<decimal>("CoverageGreen")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<decimal>("ExecutionAmber")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<decimal>("ExecutionGreen")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<decimal>("PassRateAmber")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<decimal>("PassRateGreen")
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("AppSettingsId");
+
+                            b1.ToTable("AppSettings");
+
+                            b1.ToJson("QaHealthThresholds");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AppSettingsId");
+                        });
+
+                    b.OwnsOne("Fokus.Domain.QualitySubScoreWeightConfig", "QualitySubScoreWeights", b1 =>
+                        {
+                            b1.Property<int>("AppSettingsId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<int>("CoverageWeight")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<int>("PassRateWeight")
+                                .HasColumnType("INTEGER");
+
+                            b1.HasKey("AppSettingsId");
+
+                            b1.ToTable("AppSettings");
+
+                            b1.ToJson("QualitySubScoreWeights");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AppSettingsId");
+                        });
+
                     b.Navigation("HealthThresholds")
                         .IsRequired();
 
                     b.Navigation("HealthWeights")
+                        .IsRequired();
+
+                    b.Navigation("QaHealthThresholds")
+                        .IsRequired();
+
+                    b.Navigation("QualitySubScoreWeights")
                         .IsRequired();
                 });
 
