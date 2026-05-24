@@ -31,6 +31,9 @@ namespace Fokus.Persistence.Migrations
                     b.Property<int>("BugRatioConsecutiveSprintCount")
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("BugRatioTarget")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CompanyDomain")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
