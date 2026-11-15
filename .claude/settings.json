@@ -7,7 +7,6 @@
       "Bash(rm -rf ~:*)",
       "Bash(rm -rf ~/*)",
       "Bash(sudo:*)",
-      "Bash(git push:*)",
       "Bash(git reset --hard:*)",
       "Bash(docker rm:*)",
       "Read(./**/.env)",

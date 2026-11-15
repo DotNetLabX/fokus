@@ -35,7 +35,7 @@ Mode: architect-led fast lane (plan only)
 - **Operator check (plan Step 10) is still owed by the owner** before merge: an existing database starts cleanly, the page sweep, manager 403 and `/api/users` 403 from the browser console, developer-detail 404s, the cycle-time boundary 400, and Xray credentials. The suite cannot reach any of these.
 - **Error replies changed body, not status:** the `SaveCycleTimeBoundaries` 400 drops the `errors` list; the inactive-user 401 gains `traceId`/`details`; the formerly empty 404s now carry the middleware envelope with a message. The middleware logs these at Error level, as it already did; whether client errors should log at Warning is open (outside F38).
 - **The development API document no longer lists the `["Admin"]` scope** on the 23 admin operations: FastEndpoints documents role names, not policy names. Enforcement is unchanged.
-- **Step closes cut at the 30 s step limit:** two of them, both covered by the complete runs. A full build now takes about 31 s, so `stepLimitSeconds: 30` in `.claude/verify.json` is now tight.
+- **Step closes cut at the 30 s step limit:** two of them, both covered by the complete runs. A full build now takes about 31 s, so `stepLimitSeconds: 30` in `.claude/verify.json` (not included in the public release) is now tight.
 - **Two endpoint-naming styles remain:** folders untouched by Step 6 keep `{Op}Request` names.
 - **For F36's known-open-work page:**
   - held on their current major by owner decision: Refit 8 → 16, Microsoft.NET.Test.Sdk 17 → 18, xunit.runner.visualstudio 2 → 4, NSubstitute 5 → 6;

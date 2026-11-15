@@ -15,7 +15,7 @@ Initial release.
 
 ### Post-critic fixes (v1.0.0)
 
-Applied after OMC critic review:
+Applied after critic review:
 - **Major:** Added settings.json handling (was completely missing — hooks wouldn't fire without it)
 - **Major:** Fixed classification contradiction ("always portable" vs scan-everything — now single source of truth in Phase 2)
 - **Minor:** Added CHANGELOG.md

@@ -21,7 +21,7 @@ Two HIGH (S3-1, S8-1), both code-verified. No CRITICAL, so no round-1 adversaria
 - Frontend error surfacing: FOUND. store.error is shared and reset by other actions (S8-1, S8-2).
 
 ### Coverage ledger
-Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (critic-calibration/references/ruler.md; no docs/critic-calibration overlay in this repo) · Read: full
+Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (critic-calibration/references/ruler.md; no docs/critic-calibration (not included in the public release) overlay in this repo) · Read: full
 
 | Requirement / area | Surfaces opened | Status |
 |---|---|---|
@@ -42,7 +42,7 @@ Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (critic-calib
 | Finding text for A4-01, A4-02, A1-03, A1-01, A1-06, A1-09; verdicts-1.md and verdicts-2.md in full | — | NOT OPENED. I verified the claims against live code instead. |
 | docs/conventions/vue.md, csharp.md | only the cited lines (vue.md 14-24; csharp.md 8-16, 52-57) | PARTIAL |
 | SprintsView burnup consumer; CarryOverService 14 call-site bodies | — | NOT OPENED. Not needed at mechanism depth. |
-| docs/critic-calibration/ruler.md overlay and corpus.jsonl | — | NOT OPENED. Neither exists in this repo. |
+| docs/critic-calibration/ruler.md overlay and corpus.jsonl (not included in the public release) | — | NOT OPENED. Neither exists in this repo. |
 
 ### Findings
 

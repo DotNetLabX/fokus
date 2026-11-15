@@ -42,7 +42,7 @@ Sections that may or may not exist in a given project:
 
 Sections with no template value for other projects:
 
-- External tool integration configs specific to this project (e.g., `## graphify` with a project-specific graph path)
+- External tool integration configs specific to this project (e.g., a section for a local code-graph tool with a project-specific output path)
 - Sections that are purely current project state documentation
 
 **When removing:** only remove if the section has zero portable value. If it has a portable concept with project-specific details, templatize instead.

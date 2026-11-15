@@ -28,7 +28,7 @@
 | 14 | developer (dev-s2) → team-lead | developer:implement | Step 5 done — range complete. StatusTransitionIndex; 45 checker calls + 7 scans migrated; 8 new tests. Deviation: removed SprintSummaryService.ComputeMetrics grouping (plan listed it as leave-as-is; no reader left). Size: 285k · Time: 14 min · Tool calls: 82 | deviation flagged for done check |
 | 15 | team-lead → user | paused | Owner pause honoured after Step 5; slice 6–7 not dispatched | — |
 | 16 | user → team-lead | resume | "laptop is back continue" — owner resumes the run (new session 80d534fb) | — |
-| 17 | team-lead → developer (dev-s3, a52689e1a03eea9bf) | developer:implement | Build F37-CodeQualityCleanup, steps 6–7 (build-only dispatch); do-not-touch F36 docs, skill-gaps, backlog | — |
+| 17 | team-lead → developer (dev-s3, a52689e1a03eea9bf) | developer:implement | Build F37-CodeQualityCleanup, steps 6–7 (build-only dispatch); do-not-touch F36 docs, skill-gaps (not included in the public release), backlog | — |
 | 18 | developer (dev-s3) → team-lead | developer:implement | Step 6 done (9 endpoints 404 via NotFoundException; id check before empty shortcut; Xray-disabled 200 stays first in 2). Size: 155k · Time: 3 min · Tool calls: 41 | — |
 | 19 | team-lead → developer (dev-s3) | developer:implement | Continue. | — |
 | 20 | developer (dev-s3) → team-lead | developer:implement | Steps 6–7 done — range complete. 7a: CarryOver/BugRatio/Leaderboard fixed; 7b: AsNoTracking on 22 methods. Open decision: active sprint as single target on those 3 pages computes over nothing (pre-existing); kept per Must-NOT-Change; Step 12 item + accept grep affected. Line-ending repeat restored. Size: 271k · Time: 9 min · Tool calls: 97 | scope decision → owner |

@@ -54,7 +54,7 @@ The API project holds 18 `*Service` classes, 9,397 lines (plan-time `wc -l`): 15
   - name "Service Layer Split"; plan-only definition;
   - the comparison is the agents' own check: the owner supplies and needs nothing from it.
 - **No new committed tests (standing owner ruling).** Behaviour is proven by a **golden comparison harness** kept outside the repo (Step 2). It replays a request manifest, including the sync POSTs with fake outside clients, against a seeded synthetic database, before and after each slice.
-- **Same-topic grep:** no plan covers this. `docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md` rated `domain-service` 5 ("better as its own feature"); this is that feature. G-01 (Domain → `Jira.Contracts`) stays out of scope.
+- **Same-topic grep:** no plan covers this. `docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md` (not included in the public release) rated `domain-service` 5 ("better as its own feature"); this is that feature. G-01 (Domain → `Jira.Contracts`) stays out of scope.
 - **Order:** builds on F38's branch after F38 merges.
 - **Shell:** every command in this plan is Git Bash (the Bash tool), not PowerShell.
 

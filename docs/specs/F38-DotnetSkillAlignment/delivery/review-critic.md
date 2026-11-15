@@ -22,7 +22,7 @@ There is no CRITICAL or HIGH at the level I can defend. Fix MEDIUM-1, 2, 3 and 4
 | Overlap with F37 | Benign. F37 uses an inline `?? throw` style that Step 3 does not reconcile (MEDIUM-7). |
 
 ## Coverage ledger
-Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (`docs/critic-calibration/ruler.md` absent) · Read: full
+Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (`docs/critic-calibration/ruler.md` (not included in the public release) absent) · Read: full
 
 | Requirement / area | Surfaces opened | Status |
 |---|---|---|
@@ -36,7 +36,7 @@ Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed only (`docs/critic
 | Step 7: start-up lines, read-only read, seed hook | `Program.cs`, `AppSettingsRepository`, `EntityConfiguration`, `EntityTypeBuilderExtensions`, plugin `add-hosted-service` and `persistence-patterns` | PARTIAL. See MEDIUM-5. |
 | Step 8: service CLAUDE.md | plugin vs local `create-service-claude-md` diff; current `Fokus/CLAUDE.md`; module CLAUDE.md files; Docker absence | COVERED. The plugin copy is a superset, and the accept greps match its template. |
 | Step 9: echo sweep | `csharp.md` lines 12, 13, 73; `EndpointFastEndpoints.md`; the accept grep run live; `docs/kb` | PARTIAL. See MEDIUM-6 and LOW-1. |
-| Step 10 and Must-NOT-Change | client `client.ts`; F37 plan Steps 6, 7, 9 and F37 `implementation.md`/`questions.md`; `.claude/verify.json` | PARTIAL. See MEDIUM-3. |
+| Step 10 and Must-NOT-Change | client `client.ts`; F37 plan Steps 6, 7, 9 and F37 `implementation.md`/`questions.md`; `.claude/verify.json` (not included in the public release) | PARTIAL. See MEDIUM-3. |
 | F36 spec and fit note, backlog row F38 | F36 spec (grep); fit table | COVERED. See Open Questions. |
 | FastEndpoints and FluentValidation 8/12 release notes | WebFetch returned the homepage only; `gh` is not installed | NOT OPENED. The plan and I both lack the release notes. |
 | `create-feature/workflows/*` other than `EndpointFastEndpoints.md`, `.claude/agents`, hooks, client Vue beyond `client.ts` | — | NOT OPENED. Out of the steps' reach. |

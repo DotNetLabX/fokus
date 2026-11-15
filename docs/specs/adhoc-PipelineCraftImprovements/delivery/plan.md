@@ -1,6 +1,6 @@
 # Pipeline Craft Improvements
 
-**Feature Spec:** None (ad-hoc infrastructure — based on `docs/evaluations/cross-project-skill-mining.md`)
+**Feature Spec:** None (ad-hoc infrastructure — based on `docs/evaluations/cross-project-skill-mining.md` (not included in the public release))
 
 ## Context
 

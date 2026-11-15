@@ -10,7 +10,7 @@
 
 F36 (public release) Phase 2 mined the codebase with `mine-verify-repo`: 68 findings, every one reproduced by a separate skeptic, merged to 61. The owner triaged them on 2026-10-13 into this lean campaign; everything else goes to the shipped known-open-work page (an F36 deliverable, not this feature).
 
-- **Definition:** `docs/specs/F36-PublicReleaseCleanup/delivery/mining/consolidated.md` § Recommended lean campaign + the backlog rows TD-1 and TD-3. Each step cites its finding id; the finding's evidence and skeptic verdict are in `mining/findings-*.md` and `mining/verdicts-{1,2}.md`.
+- **Definition:** `docs/specs/F36-PublicReleaseCleanup/delivery/mining/consolidated.md` § Recommended lean campaign (not included in the public release) + the backlog rows TD-1 and TD-3. Each step cites its finding id; the finding's evidence and skeptic verdict are in `mining/findings-*.md` and `mining/verdicts-{1,2}.md`.
 - **Service:** Fokus only (`src/Services/Fokus/*`) and the client (`client/src/*`). No module, contract or schema change.
 - **Same-topic grep (plan time):** no earlier plan covers these items. `BUG-1`/`BUG-2`/`GAP-4` (burnup/bar-chart disagreements) touch the same burnup code but different series (feature scope/completed); they stay open and out of scope.
 - **Why each fix:** five are wrong results or data loss a user sees; three are patterns the repo's own conventions forbid that students would copy as house style (`csharp.md:12-13`, `csharp.md:55`, `vue.md:20`); two are config/security debt.
@@ -133,7 +133,7 @@ Follow pinia-patterns and vue-patterns. Rule: `docs/conventions/vue.md:20`. Use 
 
 ### Step 10 — Front-end package advisories (TD-3)
 
-In `client/`, run `npm audit fix` without `--force`. Plan-time evidence: the F36 audit (`docs/specs/F36-PublicReleaseCleanup/delivery/npm-audit.json`) lists 6 high advisories — `vue`, `@vue/server-renderer`, `vite`, `postcss`, `nanoid`, `source-map-js` — each `fixAvailable: true`; the plan reviewer's `npm audit fix --package-lock-only` on a scratch copy reached 0 vulnerabilities with no `--force` (vite → 8.3.x and rolldown rc → 1.2.x, inside the declared ranges). Commit `package-lock.json` (and `package.json` only if npm changed it).
+In `client/`, run `npm audit fix` without `--force`. Plan-time evidence: the F36 audit (`docs/specs/F36-PublicReleaseCleanup/delivery/npm-audit.json` (not included in the public release)) lists 6 high advisories — `vue`, `@vue/server-renderer`, `vite`, `postcss`, `nanoid`, `source-map-js` — each `fixAvailable: true`; the plan reviewer's `npm audit fix --package-lock-only` on a scratch copy reached 0 vulnerabilities with no `--force` (vite → 8.3.x and rolldown rc → 1.2.x, inside the declared ranges). Commit `package-lock.json` (and `package.json` only if npm changed it).
 
 - **Accept:** `npm audit --audit-level=high` in `client/` exits 0 (plan-time baseline: exit 1); `npm ci && npm run build` in `client/` passes. If any advisory needs `--force`, stop and record it in `questions.md` — do not force.
 
@@ -181,7 +181,7 @@ None.
 
 ## Testing Strategy
 
-Backend steps 2–5 are test-first through public service methods with `TestData` fixtures (extended with optional parameters in Step 2); four new test classes under `Fokus.Tests/Features/Analytics/`, named per `docs/conventions/testing.md`. Steps 6, 7 and 9 change wiring and are covered by the build, the full suite, grep accepts and the Step 7a audit. Front-end steps 1 and 8 are accepted by grep, `npm run build` and the operator check (no test runner exists — adding one is out of scope). The close runs the declared full suite (`.claude/verify.json` `roles.full`: solution build, all tests, client build).
+Backend steps 2–5 are test-first through public service methods with `TestData` fixtures (extended with optional parameters in Step 2); four new test classes under `Fokus.Tests/Features/Analytics/`, named per `docs/conventions/testing.md`. Steps 6, 7 and 9 change wiring and are covered by the build, the full suite, grep accepts and the Step 7a audit. Front-end steps 1 and 8 are accepted by grep, `npm run build` and the operator check (no test runner exists — adding one is out of scope). The close runs the declared full suite (`.claude/verify.json` (not included in the public release) `roles.full`: solution build, all tests, client build).
 
 ## KB Impact
 

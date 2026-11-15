@@ -53,10 +53,6 @@ Fix cycles (developer <-> reviewer) are capped at 3, then escalate to architect.
 - `docs/conventions/project-rules.md` — source file definitions, build verification, coding conventions.
 - `docs/kb/index.md` — domain knowledge topic map. Read before diving into source files.
 
-## OMC Boundary
-
-This project uses oh-my-claudecode (OMC) for infrastructure (tools, model routing, hooks). The project's own pipeline in `.claude/agents/` owns feature development. Do **not** use OMC orchestration skills (team, autopilot, ralph) for pipeline work. OMC specialist agents (debugger, security-reviewer, tracer) are available for standalone tasks.
-
 ## Getting Started
 
 - **Implement a feature:** `be team-lead` and describe the feature.

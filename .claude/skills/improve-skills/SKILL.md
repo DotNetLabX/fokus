@@ -108,5 +108,5 @@ After creating or removing skills, read `.claude/README.md` and update the skill
 - Classify items — the learner already did that.
 - Modify CLAUDE.md, agent files, or rule files — that's `improve-flow`.
 - Write application code.
-- Create OMC-format skills — only native Claude Code `.claude/skills/` format.
+- Create skills in a format other than the native Claude Code `.claude/skills/` format.
 - Tag items as [APPLIED] — the learner handles tagging after skill completes.

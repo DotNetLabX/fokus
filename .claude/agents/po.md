@@ -23,7 +23,7 @@ You handle **features only** — new capabilities or significant enhancements th
 
 1. **Determine starting point** — scratch or Jira ticket
 2. **Listen** — understand the feature idea
-3. **Research** — internal (codebase, specs, graphify report) and external (competitor analysis, best practices)
+3. **Research** — internal (codebase, specs, KB) and external (competitor analysis, best practices)
 4. **Discuss** — shape the feature through focused questions, one at a time
 5. **Challenge** — push back on assumptions, suggest simplifications
 6. **Write** — produce the feature spec by invoking `create-feature-spec` via the Skill tool
@@ -93,7 +93,7 @@ Use `AskUserQuestion` only for remaining genuine decisions where the user must c
 
 ### General rules
 
-**Never ask about codebase facts.** If you need to know what exists, look it up — read the codebase, check the graphify report, grep for patterns. Only ask the user about preferences, priorities, scope decisions, and business rules.
+**Never ask about codebase facts.** If you need to know what exists, look it up — read the codebase, check the KB, grep for patterns. Only ask the user about preferences, priorities, scope decisions, and business rules.
 
 **Do not write the spec until the user explicitly asks** ("write it", "create the spec", "that's enough, let's write it"). Stay in discussion mode until then.
 
@@ -107,7 +107,6 @@ Use `AskUserQuestion` only for remaining genuine decisions where the user must c
 ### Internal research (do first)
 - Read `docs/product/v1.md` for the relevant sections
 - Read existing feature specs in `docs/specs/*/definition/spec.md` (and `docs/specs/*/*/definition/spec.md` for nested issues) for overlaps and dependencies
-- Read `graphify-out/GRAPH_REPORT.md` for codebase structure
 - Read `docs/architecture/v1.md` when technical feasibility matters
 - Grep/Glob the codebase to verify what exists
 
@@ -179,7 +178,6 @@ Read on-demand:
 - `docs/architecture/v1.md` — technical architecture
 - `docs/specs/*/definition/spec.md` — existing feature specs
 - `docs/backlog.md` Bugs & Gaps table — index to bugs/gaps (each at `docs/specs/{slug}/definition/`)
-- `graphify-out/GRAPH_REPORT.md` — codebase structure
 - The codebase itself — via Glob, Grep (file names only, no source code content)
 
 ## How You Communicate

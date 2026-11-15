@@ -279,21 +279,21 @@ Xray client (GraphQL + auth), domain model (TestExecution, TestExecutionLink, Te
 
 | ID | Feature | Status | Spec | Plan |
 |----|---------|--------|------|------|
-| F36 | Public Release Cleanup | Definition | [PublicReleaseCleanup](specs/F36-PublicReleaseCleanup/definition/spec.md) | — |
-
-**F36:** Prepare Fokus for a free public release to Udemy students: scrub private material, mine code quality and the architecture map, run a cleanup campaign, refresh product docs and conventions, and publish a rewritten feature-by-feature history in a new public repo. Private-only — this row and the F36 folder are left out of the public copy.
+| F36 | Public Release Cleanup | Definition | — (records kept private) | — |
 
 | F37 | Code Quality Cleanup | Done | — (plan-only definition) | [plan](specs/F37-CodeQualityCleanup/delivery/plan.md) |
 
-**F37:** The F36 lean campaign (Phase 3): fix the owner-triaged findings from the F36 code-quality mining (`docs/specs/F36-PublicReleaseCleanup/delivery/mining/consolidated.md` § Recommended lean campaign) — the Xray-secret overwrite and Re-detect guard, the burnup bug area, the zombie-flag window, the throughput rolling window, transition-attribution rescans, not-found status codes, hidden UI errors, read-only query tracking — plus TD-1 and TD-3. Private-only record, like F36.
+**F37:** The F36 lean campaign (Phase 3): fix the owner-triaged findings from the F36 code-quality mining (`docs/specs/F36-PublicReleaseCleanup/delivery/mining/consolidated.md` § Recommended lean campaign (not included in the public release)) — the Xray-secret overwrite and Re-detect guard, the burnup bug area, the zombie-flag window, the throughput rolling window, transition-attribution rescans, not-found status codes, hidden UI errors, read-only query tracking — plus TD-1 and TD-3.
 
 | F38 | Dotnet Skill Alignment | Done | — (plan-only definition; architect-led fast lane, full checks; operator check owed before merge) | [plan](specs/F38-DotnetSkillAlignment/delivery/plan.md) |
 
-**F38:** Bring the code in line with eight nexus-dotnet skills rated 6+ with S/S–M effort (`docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md`): central-package-management, framework-currency, error-handling, authorization-patterns, extract-endpoint-types, add-hosted-service, persistence-patterns (seeding), create-service-claude-md. Step 1 copies/merges those skills into `.claude/skills/` (3 new, 5 refreshed without losing Fokus edits); the code is then aligned from the local copies. Builds after F37 (shared endpoint files). Private-only record, like F36.
+**F38:** Bring the code in line with eight nexus-dotnet skills rated 6+ with S/S–M effort (`docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md` (not included in the public release)): central-package-management, framework-currency, error-handling, authorization-patterns, extract-endpoint-types, add-hosted-service, persistence-patterns (seeding), create-service-claude-md. Step 1 copies/merges those skills into `.claude/skills/` (3 new, 5 refreshed without losing Fokus edits); the code is then aligned from the local copies. Builds after F37 (shared endpoint files).
 
 | F39 | Service Layer Split | Done | — (plan-only definition; team run, full lane; operator check owed — plan Step 14) | [plan](specs/F39-ServiceLayerSplit/delivery/plan.md) · [summary](specs/F39-ServiceLayerSplit/delivery/summary.md) |
 
-**F39:** Split the API-layer `*Service` classes (18, ~9,400 lines; 15 in Analytics) into pure Domain calculators (`domain-service` skill) and Application-layer orchestration in a new `Fokus.Application` project, shrinking the large services and endpoints. Reverses the root `CLAUDE.md` "no separate Application project" rule and the thin-domain note, by owner decision (2026-10-14). Behaviour is proven by an external before/after golden comparison on a seeded synthetic database (no new committed tests). Builds after F38 merges. Private-only record, like F36.
+**F39:** Split the API-layer `*Service` classes (18, ~9,400 lines; 15 in Analytics) into pure Domain calculators (`domain-service` skill) and Application-layer orchestration in a new `Fokus.Application` project, shrinking the large services and endpoints. Reverses the root `CLAUDE.md` "no separate Application project" rule and the thin-domain note, by owner decision (2026-10-14). Behaviour is proven by an external before/after golden comparison on a seeded synthetic database (no new committed tests). Builds after F38 merges.
+
+| F40 | Publish Cleanup | In Progress | — (plan-only definition; records kept private) | — |
 
 ---
 
@@ -328,7 +328,7 @@ All issues use `docs/specs/{slug}/definition/` (bug.md for bugs, spec.md for gap
 | ID | Item | Priority | Notes |
 |----|------|----------|-------|
 | TD-1 | Cookie `SecurePolicy.Always` for production | High | **Done (F37 Step 9):** `Always` outside Development, `SameAsRequest` in Development. Currently `SameAsRequest` — cookies not marked Secure over HTTP. Must be `Always` before Azure deployment behind HTTPS. |
-| TD-3 | Front-end package advisories (carry-over from F36 Phase 1) | Medium | **Done (F37 Step 10):** `npm audit fix` (no `--force`) → 0 vulnerabilities. `npm audit` in `client/` reports 6 high-severity advisories (`@vue/server-renderer`, `vue`, `vite`, `postcss`, `nanoid`, `source-map-js`); report kept in `docs/specs/F36-PublicReleaseCleanup/delivery/npm-audit.json`. Owner triage at F36 Phase 2 (spec O2). |
+| TD-3 | Front-end package advisories (carry-over from F36 Phase 1) | Medium | **Done (F37 Step 10):** `npm audit fix` (no `--force`) → 0 vulnerabilities. `npm audit` in `client/` reports 6 high-severity advisories (`@vue/server-renderer`, `vue`, `vite`, `postcss`, `nanoid`, `source-map-js`); report kept in `docs/specs/F36-PublicReleaseCleanup/delivery/npm-audit.json` (not included in the public release). Owner triage at F36 Phase 2 (spec O2). |
 | TD-2 | Google OAuth options pattern | Medium | `AuthConfiguration` reads `Google:ClientId`/`ClientSecret` via `configuration[]` + inline `Bind`. Should use a typed `GoogleAuthOptions` class with `ValidateDataAnnotations().ValidateOnStart()` like `JiraOptions`. |
 | TD-4 | Database test harness + `GetZombieSprintCountsAsync` test (follow-up from F37) | Medium | `Fokus.Tests` has no database harness, so the F37 zombie-count query (`SprintRepository.GetZombieSprintCountsAsync`, SQL grouping on `TicketId.ToUpper()`) has no kept test; a translation failure would 500 the Dashboard summary. Add an in-memory SQLite harness and a test for the query. |
 

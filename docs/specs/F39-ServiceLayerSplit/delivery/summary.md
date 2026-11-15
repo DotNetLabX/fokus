@@ -21,7 +21,7 @@
 - Fix round 1 added `Ticket.GetEffectiveSp(int)` to the `Ticket` behaviour partial.
 
 ## Notes
-- `.claude/verify.json` `stepLimitSeconds` is now 60 (owner decision, permanent); the slow-test first pass found no test at or over 2 s, and `.claude/test-times.json` was re-timed and pruned of the 33 old `…ServiceTests` keys at close.
+- `.claude/verify.json` (not included in the public release) `stepLimitSeconds` is now 60 (owner decision, permanent); the slow-test first pass found no test at or over 2 s, and `.claude/test-times.json` was re-timed and pruned of the 33 old `…ServiceTests` keys at close.
 - `graphify update .` was never run: graphify is not installed in this environment, so `graphify-out/` is stale until the owner runs it.
 - Six analytics endpoints outside Step 9 (`GetScopeChange`, `GetDeveloperThroughput`, `GetLeaderboard`, `GetCycleTime`, `GetBugRatio`, `GetCarryOver`) keep `HandleAsync` methods of 85–95 lines — flagged by the developer, not in the plan's scope.
 - Two skills outside F39's scope still mention Mapster (`add-integration-event/workflows/Consumer.md:71`, `create-grpc-contract/workflows/Server.md:39`) — a separate small fix.

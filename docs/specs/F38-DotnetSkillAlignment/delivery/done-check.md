@@ -31,7 +31,7 @@ Pre-commitment predictions: (1) a `target — lands in Step N` line in a Step 1 
 - **Carry-over for `summary.md` Notes (my plan's omission, not a developer fault):** the 13 converted `SendNotFoundAsync` 404s used to return an empty body. They now return the middleware envelope with a new message and are logged at Error level. Step 3 sanctions it ("the middleware writes every one"), but § Must-NOT-Change names only the 400 and 401 body changes as approved. The close should list it beside them. Also carry: the stale "Thin domain (v1)" line in `src/Services/Fokus/CLAUDE.md`, for F36's refresh.
 - **Stale evidence line:** in `implementation.md`, the Step 1 fact "mapper registered first → `Program.cs:46`" now sits at `Program.cs:18` after Step 7. The skill copy cites no line, so nothing to fix in the skill.
 - **Observation for the reviewer, not a disposition:** `src/Services/Fokus/CLAUDE.md:42` says "every other endpoint takes authentication only". `Auth/Login` and `Auth/ValidateInvitation` are anonymous.
-- **Unrelated dirt, not this feature's:** `.claude/settings.json` (modified 20:10:50Z, before the window; removes the deny list and sets `bypassPermissions`), `docs/backlog.md`, `docs/specs/F36-PublicReleaseCleanup/**`, `.claude/.personas.json` and `docs/skill-gaps/`. Keep them out of the F38 commit.
+- **Unrelated dirt, not this feature's:** `.claude/settings.json` (modified 20:10:50Z, before the window; removes the deny list and sets `bypassPermissions`), `docs/backlog.md`, `docs/specs/F36-PublicReleaseCleanup/**`, `.claude/.personas.json` and `docs/skill-gaps/` (not included in the public release). Keep them out of the F38 commit.
 
 **Verdict: PASS**
 

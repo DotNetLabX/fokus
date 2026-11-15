@@ -6,7 +6,7 @@
 - `docs/conventions/review-format.md` — extracted Review Output Format from agents-workflow.md, enhanced with Confidence qualifier on findings, Anti-patterns section, and Consumers table
 - `docs/conventions/questions-format.md` — extracted Questions File Format from agents-workflow.md, enhanced with Anti-patterns section and Consumers routing table
 - `docs/conventions/kb-entry-schema.md` — new standard section schema for KB entries (Rules, Key Files, Edge Cases, Relationships, optional Status/Source)
-- `docs/conventions/known-deviations.md` — new recurring developer mistakes catalog seeded from lessons analysis (6 entries from F28, F29, F30, F31, F32, adhoc-SuiteScaffolding)
+- `docs/conventions/known-deviations.md` — new recurring developer mistakes catalog seeded from lessons analysis (6 entries from F28, F29, F30, F31, F32, adhoc-SuiteScaffolding (not included in the public release))
 - `.claude/skills/create-implementation-plan/CHANGELOG.md` — baseline changelog for skill
 - `.claude/skills/create-feature/CHANGELOG.md` — baseline changelog for skill
 - `.claude/skills/diagnose/CHANGELOG.md` — baseline changelog for skill

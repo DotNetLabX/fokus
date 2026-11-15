@@ -65,7 +65,7 @@
 ### create-service (fix: CLAUDE.md fallback)
 - **Status:** Needed
 - **Type:** Fix
-- **Source:** adhoc-SuiteScaffolding lessons
+- **Source:** adhoc-SuiteScaffolding lessons (not included in the public release)
 - **Description:** `create-service` hard-errors when `src/Services/{Name}/CLAUDE.md` is missing. For ad-hoc scaffolding without an architect phase, the skill should fallback: prompt for key axes inline rather than requiring the architect's `create-service-claude-md` skill as a prerequisite.
 - **Date:** 2026-05-24
 

@@ -8,7 +8,7 @@
 
 ## Context
 
-The owner wants Fokus to ship to students as a repo built with agents and aligned with the .NET skills it teaches. `docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md` rated 35 plugin skills against Fokus. The owner picked the eight rated 6+ with effort S or S–M (backlog row F38, `docs/backlog.md`).
+The owner wants Fokus to ship to students as a repo built with agents and aligned with the .NET skills it teaches. `docs/specs/F36-PublicReleaseCleanup/delivery/nexus-dotnet-skill-fit.md` (not included in the public release) rated 35 plugin skills against Fokus. The owner picked the eight rated 6+ with effort S or S–M (backlog row F38, `docs/backlog.md`).
 
 - **Owner rulings (2026-10-13):** name "Dotnet Skill Alignment". **Step 1 copies the skills into `.claude/skills/`; every later step applies the local copy.** Plan-only definition, full checks. Branch off F37's branch; build after F37 merges, because F37 edits the same endpoint files, `Program.cs` (F37 Step 9) and the analytics not-found paths (F37 Step 6). F38 also merges before F36 Phase 4 (architecture map and conventions refresh) and Phase 5 (public history), so both describe the aligned code.
 - **Version scope — owner ruling "middle" (2026-10-13, asked in session):**

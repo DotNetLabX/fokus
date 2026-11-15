@@ -19,7 +19,7 @@ Initial release.
 
 ### Post-critic fixes (v1.0.0)
 
-Applied after OMC critic review:
+Applied after critic review:
 - **Major:** Re-import status handling in Phase 3 (`removed`, `user-modified`, `preserve`, `flag` resolutions)
 - **Major:** Checksum column in kit-manifest for user-modified file detection
 - **Major:** CHECKPOINT 1 "Removed from Kit" section for re-import

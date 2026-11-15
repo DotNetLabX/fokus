@@ -48,7 +48,7 @@ Follow `playbooks/template-generation.md`:
 2. For each `##` section, classify and transform:
    - **Keep as-is:** Guardrails, generic conventions, workflow mechanics (all scan at 0% — verified in Phase 2)
    - **Templatize:** Tech Stack, Frontend, Repo Structure -> replace body with FILL markers that include guidance and examples from a different stack
-   - **Remove:** Project-specific integration sections with no template value (e.g., graphify config, specific tool references)
+   - **Remove:** Project-specific integration sections with no template value (e.g., a local tool's config, specific tool references)
 3. Add a header comment with generation metadata.
 4. Write to `{output-path}/CLAUDE.md.template`.
 

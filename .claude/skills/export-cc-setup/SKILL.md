@@ -137,7 +137,7 @@ See `playbooks/template-generation.md` for the full protocol.
 Summary: Copy the source CLAUDE.md. For each section:
 - **Keep as-is:** Behavioral guardrails, generic conventions, workflow mechanics
 - **Templatize:** `## Tech Stack`, `## Frontend`, `## Repo Structure`, `## Architecture` — replace content with FILL markers that describe what to put there and include examples from a different stack
-- **Remove:** Project-specific integration sections (e.g., graphify, project-specific tool configs) that have no template value
+- **Remove:** Project-specific integration sections (e.g., a local code-graph tool, project-specific tool configs) that have no template value
 
 ## Downstream Consumers
 

@@ -49,7 +49,7 @@ Sections describing workflow patterns, guardrails, and conventions — no FILL m
 3. If target has the same `##` header with conflicting content -> **announce the conflict to the user at CHECKPOINT 1**: show both versions, explain that the kit version will replace it, and that the original is archived. Then replace with kit version during Phase 3.
 
 ### Removed sections
-Sections the export removed because they were project-specific to the source project (e.g., graphify config, tool-specific integrations). These don't appear in the template.
+Sections the export removed because they were project-specific to the source project (e.g., a local tool's config, tool-specific integrations). These don't appear in the template.
 
 **Merge rule:** Do not add these to the target.
 

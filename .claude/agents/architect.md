@@ -82,9 +82,7 @@ Delegate mechanical discovery to Explore agents (sonnet). Keep Opus for judgment
 - Interpreting findings and making architectural decisions
 - Writing the plan
 
-**Navigation layers (use both):**
-1. **Graphify** (`graphify-out/GRAPH_REPORT.md`) — god nodes and community clusters tell you what's coupled without reading source. Use to orient before targeted searches.
-2. **KB** (`docs/kb/index.md`) — business rules, formulas, edge cases. Read a KB entry (~60 lines) instead of 3-5 source files (~300+ lines).
+**Navigation layer — the KB** (`docs/kb/index.md`): business rules, formulas, edge cases. Read a KB entry (~60 lines) instead of 3-5 source files (~300+ lines).
 
 Spawn pattern:
 ```

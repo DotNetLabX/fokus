@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // SessionStart hook — re-inject the last active pipeline role after clear/compact/resume.
 // Reads .claude/.current-agent (written by the /<agent> commands). Graceful no-op if absent.
-// OMC-free replacement for the old `echo "be $CC_AGENT"` hook ($CC_AGENT was never set here).
 
 const fs = require("fs");
 const path = require("path");

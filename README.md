@@ -85,6 +85,11 @@ cp deploy-config.example.ps1 .credentials/deploy-config.ps1
 ```
 Then fill in your values in `.credentials/deploy-config.ps1` and run `deploy.ps1`.
 
+## Learning from the Code
+
+- [Architecture map](docs/architecture-map/index.md) — what the code is today, project by project. Each fact comes with the command that proves it.
+- [Known open work](docs/known-open-work.md) — design problems a review found and left in place, each with the habit not to copy.
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.

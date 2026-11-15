@@ -26,11 +26,11 @@ Round 1 stays non-adversarial: 2 HIGH, no CRITICAL. One systemic note: every Con
 | Echoes missed in docs and skills | Confirmed (F10). |
 
 ## Coverage ledger
-Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed `references/ruler.md` (no overlay; `docs/critic-calibration/` absent) · Read: full
+Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed `references/ruler.md` (no overlay; `docs/critic-calibration/` (not included in the public release) absent) · Read: full
 
 | Requirement / area | Surfaces opened | Status |
 |---|---|---|
-| Context claims and counts | plan § Context; all `*Service.cs` (sizes, purity, helper defs, hash compare); Tests usings and fact count; `verify.json` | COVERED |
+| Context claims and counts | plan § Context; all `*Service.cs` (sizes, purity, helper defs, hash compare); Tests usings and fact count; `verify.json` (not included in the public release) | COVERED |
 | Steps 1 and 3 (skills, Application project) | plugin `domain-service` and `service-registration`; local `service-registration` (grep); csproj ×4, `Fokus.slnx`, `Program.cs`, API `DependencyInjection.cs`, Persistence DI | COVERED |
 | Step 2 (golden harness) | `Program.cs`; `Auth/*` ×4; Persistence Migration and Seed; `appsettings.json`; route inventory; request shapes; Domain entity setters; F38 plan (API-doc method, D11) | COVERED |
 | Steps 4–7 (kernel, calculators, long methods) | helper bodies; `TransitionAttributionChecker`; `TestExecutionRepository` 120–185; method-length measurement; step-5/6 cross-type dependencies | COVERED |
@@ -74,11 +74,11 @@ Round: 1 · Depth: mechanism · Bar: mechanics · Ruler: seed `references/ruler.
 
 ### [MEDIUM] F3 — Steps 4–10 say "full suite green", but the test project cannot compile until Step 11
 **Anchor:** seed-0130 · above seed-0127 · below seed-0116
-**Band:** MEDIUM–HIGH; driver: whether a per-step commit gate runs the declared `build` role literally. `verify.json` declares roles only, no commit strategy.
+**Band:** MEDIUM–HIGH; driver: whether a per-step commit gate runs the declared `build` role literally. `verify.json` (not included in the public release) declares roles only, no commit strategy.
 **Shape:** step order breaks its own accept
 **Consequence:** Every step from the first move to the test-fix step leaves the build broken, so the stated per-step green check cannot pass as ordered.
 **Evidence:** quoted + path
-**Surfaces:** plan § Step 4–7, § Step 11; `Fokus.Tests/GlobalUsings.cs`; `Fokus.Tests/Features/Analytics/TransitionAttributionCheckerTests.cs:18`; `.claude/verify.json`
+**Surfaces:** plan § Step 4–7, § Step 11; `Fokus.Tests/GlobalUsings.cs`; `Fokus.Tests/Features/Analytics/TransitionAttributionCheckerTests.cs:18`; `.claude/verify.json` (not included in the public release)
 - **Source:** Step 4 says "full suite green"; Step 11 says "update the 5 test files to the new namespaces".
 - **Issue:** The `build` role is `dotnet build src/Fokus.slnx`, which includes `Fokus.Tests`.
   - Tests reference the moved types directly, via `global using Fokus.API.Features.Analytics`.

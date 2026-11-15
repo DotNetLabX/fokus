@@ -16,4 +16,4 @@ Comprehensive hardening of the agent pipeline: extracted convention files from a
 
 ## Notes
 - Documentation-only changes — no source code or build impact
-- All anti-patterns and known deviations are seeded from real lessons (F28-F32, adhoc-SuiteScaffolding), not hypothetical
+- All anti-patterns and known deviations are seeded from real lessons (F28-F32, adhoc-SuiteScaffolding (not included in the public release)), not hypothetical
