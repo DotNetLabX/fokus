@@ -13,7 +13,7 @@ reviewer (second reader), with three read-only equivalence helpers per area (Spr
 No CRITICAL or HIGH. Three LOW findings and two reader-side gaps. The refactor changes no output value on any path I could construct or trace.
 
 ## Pre-commitment Predictions
-- **Step 7 decomposition drifts behaviour on branches the seeded fixture does not reach** (empty or zero guards, `>` vs `>=`, tie order, summation order, a shared copy vs the original list instance). Investigated by five independent traces of old (`git show 5fe66f8:`) against new; **none found**. Four helpers plus my own reads agree, and my own mutation battery (below) shows which branches the harness cannot see, so the traces were aimed there.
+- **Step 7 decomposition drifts behaviour on branches the seeded fixture does not reach** (empty or zero guards, `>` vs `>=`, tie order, summation order, a shared copy vs the original list instance). Investigated by five independent traces of old (`git show 5fe66f8 (commit from the original private history):`) against new; **none found**. Four helpers plus my own reads agree, and my own mutation battery (below) shows which branches the harness cannot see, so the traces were aimed there.
 - **D6 "provably equal" merges are not.** `FilterMemberships` (a)/(b), `GetDeveloperMemberships(subTeam: null)`, `ResolveCardDelta`, `PassRate` `0m` vs `0`, `IsStartedInSprint` list overload: all hold. No (a)-variant caller mutates or compares the list instance it gets back.
 - **Loaders change query order, early exits or the SQL count.** Not found. Order, 404 timing and empty replies match for all six loaders; the SQL total is 6536 on both sides.
 - **The Persistence copy replacement changes the started-in-sprint filter.** Not found: ordinal ticket key, `OrdinalIgnoreCase` stage index, `startIndex < 0`, a ticket with no transitions and first-qualifying vs `Any` all match. A negating mutant of it is killed.
@@ -43,7 +43,7 @@ No CRITICAL or HIGH. Three LOW findings and two reader-side gaps. The refactor c
 **Confidence:** 85/100
 
 ## Positive Observations
-- Moves were checked mechanically, not by reading both copies: `diff -w` of both sync services against `git show 5fe66f8:` shows only using and namespace lines (the three `catch` blocks in each are untouched); the four moved test files differ from base only by class names, the `_sut` type, the `SelectRollingWindowSprintIds` owner and the 19 `today:` arguments, as `implementation.md` states.
+- Moves were checked mechanically, not by reading both copies: `diff -w` of both sync services against `git show 5fe66f8 (commit from the original private history):` shows only using and namespace lines (the three `catch` blocks in each are untouched); the four moved test files differ from base only by class names, the `_sut` type, the `SelectRollingWindowSprintIds` owner and the 19 `today:` arguments, as `implementation.md` states.
 - The kernel merges are written with care: variants that differ stay, named, with the difference (`GetCapacity` flat lookup, two `ComputeRollingAverage`, four sparkline builders, two alert evaluators). Every claimed equivalence I tried to break held.
 - Domain purity is real: no logger, options, repository, DbContext, clock or JSON in `Fokus.Domain/Analytics`; no instance state in any calculator; the clock is a required last parameter, so a forgotten caller does not compile.
 - Method-length claim reproduced with the developer's script: 0 methods over 80 in `Fokus.Domain/Analytics`, longest 80.
@@ -83,7 +83,7 @@ No CRITICAL or HIGH. Three LOW findings and two reader-side gaps. The refactor c
 | Mutation battery (17 mutants) | 10 killed, 7 survived | one mutant at a time in the scratch copy; a kill counts only from a replies or SQL diff | survivors listed under Gaps; no compile failures, no adjudication bucket |
 | Plan accept greps | pass | `*Service.cs` in API → none; purity grep → 0; clock grep → 0; aggregate-name namespace grep → 0; Mapster grep over the 4 skill folders → 0; `Migrations` diff → empty; `Fokus.Domain.csproj` diff → empty; 43 `SKILL.md` = README | live, this review |
 | Method lengths | pass | `node <temp>/f39-golden/method-lengths.js src/Services/Fokus/Fokus.Domain/Analytics 60 12` | 0 over 80; longest 80 (`QaMetricsCalculator.ComputeQaMetrics`) |
-| Moved-file diffs | pass | `git show 5fe66f8:{old} \| diff -w --strip-trailing-cr - {new}` for both sync services and the four test files | using and namespace lines only; tests: names and `today:` arguments only |
+| Moved-file diffs | pass | `git show 5fe66f8 (commit from the original private history):{old} \| diff -w --strip-trailing-cr - {new}` for both sync services and the four test files | using and namespace lines only; tests: names and `today:` arguments only |
 | Platform-conditional grep | n/a | no `process.platform` or OS-conditional in the diff (C# only; none added) | — |
 
 My scratch tree and the extra captures I made under `<temp>\f39-golden\captures\` were removed afterwards; the repository was not written to.

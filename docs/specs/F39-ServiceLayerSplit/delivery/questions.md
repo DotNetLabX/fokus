@@ -8,7 +8,7 @@
 **File:** none yet (harness lives in `<temp>\f39-golden\`)
 
 **Context:** The dispatch carries the owner constraint "No git writes of any kind". Step 2 creates the base tree with `git worktree add` (writes `.git/worktrees/` and a ref-locked checkout), Step 2's sabotage check proves the revert with `git -C "<temp>/f39-golden/base" status --porcelain`, and Step 13 removes it with `git worktree remove`. All three need a worktree, so they conflict with the constraint.
-A read-only route gives the same frozen tree: `git archive 5fe66f8 | tar -x -C "<temp>/f39-golden/base"` reads objects only (5fe66f8 = HEAD now, no `src/` edit yet — `git status` shows none under `src/`). The sabotage revert is then proven by `diff -r --exclude=bin --exclude=obj "<temp>/f39-golden/base/src" "<temp>/f39-golden/pristine/src"` against a second, untouched extract (or `git archive 5fe66f8 -- {file} | tar -xO` per edited file compared with `cmp`). Step 13's cleanup becomes `rm -rf "<temp>/f39-golden/base" "<temp>/f39-golden/pristine"`.
+A read-only route gives the same frozen tree: `git archive 5fe66f8 (commit from the original private history) | tar -x -C "<temp>/f39-golden/base"` reads objects only (5fe66f8 (commit from the original private history) = HEAD now, no `src/` edit yet — `git status` shows none under `src/`). The sabotage revert is then proven by `diff -r --exclude=bin --exclude=obj "<temp>/f39-golden/base/src" "<temp>/f39-golden/pristine/src"` against a second, untouched extract (or `git archive 5fe66f8 (commit from the original private history) -- {file} | tar -xO` per edited file compared with `cmp`). Step 13's cleanup becomes `rm -rf "<temp>/f39-golden/base" "<temp>/f39-golden/pristine"`.
 
 **Question:** May Steps 2 and 13 use a `git archive` extract plus a pristine second extract in place of `git worktree add`/`status`/`remove`?
 
@@ -20,7 +20,7 @@ Keep `git worktree` — Needs the owner to lift "no git writes" for the worktree
 ### Answer
 **architect, 2026-10-14 — Yes: use the `git archive` extract pair.** Confidence: high — the worktree was only ever a frozen copy plus a cleanliness check, and "no git writes" is an owner constraint the plan must not breach.
 
-- **Verified:** `git archive 5fe66f8 -- CLAUDE.md | tar -xf - -C {scratch}` gives a file `cmp`-identical to the checkout (the `core.autocrlf=true` conversion is applied, so the extract matches the checkout's line endings). No `.gitattributes`; no git-dependent build step (no SourceLink/Nerdbank/GitVersion) in any `.props`/`.csproj`, so the extract builds without a `.git` folder.
+- **Verified:** `git archive 5fe66f8 (commit from the original private history) -- CLAUDE.md | tar -xf - -C {scratch}` gives a file `cmp`-identical to the checkout (the `core.autocrlf=true` conversion is applied, so the extract matches the checkout's line endings). No `.gitattributes`; no git-dependent build step (no SourceLink/Nerdbank/GitVersion) in any `.props`/`.csproj`, so the extract builds without a `.git` folder.
 - **Form, in Git Bash:**
   - before extracting, `git status --porcelain -- src Directory.Packages.props` is empty (the extract is the committed tree only);
   - `git archive {base} | tar -xf - -C "/d/temp/f39-golden/base"` and the same into `/d/temp/f39-golden/pristine` — use the `/d/...` path form: GNU tar can read a `D:` prefix as a remote host;

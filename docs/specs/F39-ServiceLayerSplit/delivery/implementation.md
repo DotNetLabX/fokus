@@ -67,7 +67,7 @@
 - `<temp>\f39-golden\captures\{name}\` — `replies/{A,B,C}/NNNN.txt`, `sql-counts.json`, `api.json`, `manifest.json`, `run-info.json`.
 **Skills:** None — plan Skill Mapping `(none)`, TDD no (gap: no skill for a before/after output-comparison harness)
 **Decisions:**
-- **Base:** commit `5fe66f81689324367474d047fa79a0278a0b546e` (`git rev-parse HEAD` before any F39 source edit). `git status --porcelain -- src Directory.Packages.props` was empty. Extracted twice with `git archive 5fe66f8 | tar -xf - -C "/d/temp/f39-golden/{base,pristine}"`, and `diff -r` of the two extracts was empty. No git write (questions.md Q1, D12).
+- **Base:** commit `5fe66f81689324367474d047fa79a0278a0b546e (commit from the original private history)` (`git rev-parse HEAD` before any F39 source edit). `git status --porcelain -- src Directory.Packages.props` was empty. Extracted twice with `git archive 5fe66f8 (commit from the original private history) | tar -xf - -C "/d/temp/f39-golden/{base,pristine}"`, and `diff -r` of the two extracts was empty. No git write (questions.md Q1, D12).
   - Line endings: the extract is CRLF (`core.autocrlf=true`), while some checkout files are LF (e.g. `Fokus.API/Program.cs`). The main-tree capture below shows this changes no reply byte.
 - **Harness shape:** two project folders (`harness/base`, `harness/main`) compile the same `../src/**/*.cs`. Each tree under test keeps its own harness `obj/bin`, and the reference stays a plain absolute path. Entry type `Fokus.API.Hubs.SprintHub`; `Program.cs` unchanged.
 - **Content root:** with `Microsoft.AspNetCore.Mvc.Testing` in a console app, `WebApplicationFactory` cannot find the content-root attribute, so it throws "Solution root could not be located". The harness reads the `Fokus.API` path from the generated `MvcTestingAppManifest.json` and sets `ASPNETCORE_TEST_CONTENTROOT_FOKUS_API` before the host starts.
@@ -516,7 +516,7 @@
 - **`.claude/test-times.json` stale keys not removed.** The plan says to remove them; the dispatch's owner constraint forbids touching `.claude/test-times.json`, and the owner's instruction wins. The file still keys 33 tests under the four `…ServiceTests` names; they no longer exist. Carried over for the close gate (its delta pass re-times changed test files).
 - No `graphify update .` (as at Steps 4, 7–10).
 - **Accept:**
-  - **Test diff against the base** (`git show HEAD:{old path} | diff - {new path}`, read-only; HEAD is the base `5fe66f8`):
+  - **Test diff against the base** (`git show HEAD:{old path} | diff - {new path}`, read-only; HEAD is the base `5fe66f8 (commit from the original private history)`):
     - `DeveloperProgressCalculatorTests.cs` — class name, `_sut` type `DeveloperProgressService` → `DeveloperProgressCalculator`, and in all 19 `ComputeProgress` calls `excludedDeveloperIds: …);` → `excludedDeveloperIds: …,` + `today: DateTime.UtcNow.Date);` (the explicit date argument, Step 6);
     - `DeveloperThroughputCalculatorTests.cs` — class name, `_sut` type, and 2 × `DeveloperThroughputService.SelectRollingWindowSprintIds` → `DeveloperThroughputCalculator.…`;
     - `ScopeChangeCalculatorTests.cs`, `SprintSummaryCalculatorTests.cs` — class name and `_sut` type only;
@@ -569,7 +569,7 @@
     - API document: 56 operations, 1366 locations each side, 0 differences.
   - `compare.sh base-1 base-final` → `COMPARISON: PASS` (same figures);
   - `compare.sh base-1 final` → `COMPARISON: PASS` (same figures).
-  - **Must-NOT-Change pins, checked at the end:** `git diff --stat 5fe66f8 -- src/Services/Fokus/Fokus.Persistence/Migrations` empty, and no untracked file there; `grep -rnE "ILogger|IOptions|DbContext|Repository"`, the clock grep and the `System.Text.Json` grep over `Fokus.Domain/Analytics` → 0 each; `find src/Services/Fokus/Fokus.API -name "*Service.cs"` → none.
+  - **Must-NOT-Change pins, checked at the end:** `git diff --stat 5fe66f8 (commit from the original private history) -- src/Services/Fokus/Fokus.Persistence/Migrations` empty, and no untracked file there; `grep -rnE "ILogger|IOptions|DbContext|Repository"`, the clock grep and the `System.Text.Json` grep over `Fokus.Domain/Analytics` → 0 each; `find src/Services/Fokus/Fokus.API -name "*Service.cs"` → none.
   - step close `verify-run.js --profile fast`, one call: pass, 3.5 s.
 
 ## Fix Round 1
@@ -603,7 +603,7 @@
     - `dev-zed`, active, with a 0% record in every closed sprint and no tickets — `developer-detail/dev-zed` is the "no activity in closed sprints" 404. A 0 default capacity could not be used: `DeveloperConfiguration`'s `HasDefaultValue(100)` stores a CLR 0 on insert as 100;
     - a `qa-trends?last=0` request (14 sprints in the reply, as with no `last`).
     - Ticket keys skip the `FOK-9xx` block (the epics), and the future sprint's keys follow the sprint count; both formulas give A–C's old keys.
-  - **Row 6 — base and comparison:** base re-extracted read-only (`git archive 5fe66f8 | tar -x` into `<temp>\f39-golden\base`, the Q1/D12 route); `harness/base` built (its `Fokus.API.dll` holds the old `SprintSummaryService`, the main build does not). Captures `ext-base` and `ext-main`, both UTC 2026-10-14: 916 entries (D adds 307), 29 routes, 0 status mismatches each. `compare.sh ext-base ext-main` → **`COMPARISON: PASS`** — replies 0 files differ, SQL 916/916 entries, 0 risen, total 11965 both, API document 56 operations, 1366 locations, 0 differences.
+  - **Row 6 — base and comparison:** base re-extracted read-only (`git archive 5fe66f8 (commit from the original private history) | tar -x` into `<temp>\f39-golden\base`, the Q1/D12 route); `harness/base` built (its `Fokus.API.dll` holds the old `SprintSummaryService`, the main build does not). Captures `ext-base` and `ext-main`, both UTC 2026-10-14: 916 entries (D adds 307), 29 routes, 0 status mismatches each. `compare.sh ext-base ext-main` → **`COMPARISON: PASS`** — replies 0 files differ, SQL 916/916 entries, 0 risen, total 11965 both, API document 56 operations, 1366 locations, 0 differences.
   - **Row 6 — the extension kills the five surviving mutants:** a scratch copy of the current `src` (`<temp>\f39-golden\mut`, `diff -rq` identical to the tree) with its own harness project; unmutated capture `mut-0` vs `ext-main` → PASS. One mutant at a time, restored from a byte copy after each, each compared against `ext-main`:
     - `QaTrendsInputs` `last is null or 0` → `last is null`: **FAIL** (1 reply, D `qa-trends?last=0`);
     - `DeveloperQualityInputs` `TakeLast(12)` → `TakeLast(11)`: **FAIL** (3 replies, D developer-quality);

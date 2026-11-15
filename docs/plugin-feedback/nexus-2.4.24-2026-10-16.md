@@ -10,7 +10,7 @@ Source repo: Fokus (`<repo-root>`). Filed by the main session at the owner's req
   3. `agents/architect.md` → plan-time rules: when a step moves or extracts code, the plan names the duplicated helpers it must merge, with their copy counts — Step 4 of F39's plan did this by hand and still undercounted (8 sprint records named, 9 found).
   4. Proposal, larger: a duplicate check in the per-step close (`verify-run.js --profile fast`) or the verify gate — a declared, stack-specific duplicate detector run over the files the step touched, reporting new copies as an advisory line. Declared per repo in `.claude/verify.json` (not included in the public release) like the other roles, so a repo without one is unaffected.
 - **Action:** add
-- **Evidence:** F39-ServiceLayerSplit (Fokus, 2026-10-14), base commit `8a132ce`. Before F39, the analytics code in `src/Services/Fokus/Fokus.API/Features/Analytics/*Service.cs` carried these copies, each service holding its own private copy of a shared helper:
+- **Evidence:** F39-ServiceLayerSplit (Fokus, 2026-10-14), base commit `0f54bf1`. Before F39, the analytics code in `src/Services/Fokus/Fokus.API/Features/Analytics/*Service.cs` carried these copies, each service holding its own private copy of a shared helper:
 
   | Copied item | Kind | Copies |
   |---|---|---|

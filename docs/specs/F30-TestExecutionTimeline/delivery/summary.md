@@ -9,7 +9,7 @@ A test execution timeline for the Sprints page single-sprint view: a burnup char
 - **Files:** 22 F30 files committed — 11 created, 11 modified (backend service + endpoint, 5 Vue components, SprintsView/SprintFlags integration, types/api/store, KB entry).
 - **Build:** clean — 0 errors (13 pre-existing QaWorkloadService warnings, unrelated); TypeScript exit 0.
 - **Review:** APPROVED after 1 fix cycle (2 HIGH findings resolved: prior-sprint transitions bug, missing Xray-enabled sync prompt; plus 2 LOW polish items).
-- **Commits:** `e8f37c7` plan · `3b543cb` implementation · `1823236` finalize after review · plus pipeline-completion commit.
+- **Commits:** `6a03df5` plan · `154fae3` implementation · `4b90565` finalize after review · plus pipeline-completion commit.
 
 ## Deviations from Plan
 - `ComputeCrunchFlag` implemented as a static method on `TestTimelineService` rather than injecting `TestTimelineService` into `GetSprintSummaryEndpoint`. The plan explicitly offered this as an acceptable alternative; it avoids a CS9113 unused-dependency warning. Approved at Step 1 done check.

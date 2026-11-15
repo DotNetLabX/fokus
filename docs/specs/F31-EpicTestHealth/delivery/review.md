@@ -18,7 +18,7 @@ No CRITICAL or HIGH issues found. Two MEDIUM findings (one dead-code, one minor 
 | BR5/BR8 test status edge cases (all-aborted) | Found: all-aborted falls through to "Passed" — technically incorrect per spec wording, but extreme edge case (LOW) |
 | Frontend reactivity / storeToRefs for cross-store read | isXrayEnabled computed accesses settingsStore.settings directly — technically reactive, minor convention deviation (MEDIUM) |
 | BR22 vs BR17 summary card conflict | Confirmed spec ambiguity — implementation follows the more specific BR17 (open question) |
-| Frontend build TypeScript errors | TS error in SettingsView.vue confirmed pre-existing (present in commit 8c75050, before F31 implementation) |
+| Frontend build TypeScript errors | TS error in SettingsView.vue confirmed pre-existing (present in commit c3fc746, before F31 implementation) |
 
 ---
 
@@ -124,7 +124,7 @@ These are contradictory. If a user expects to see a card with "—" (BR22), they
 | Check | Result | Command | Output |
 |-------|--------|---------|--------|
 | Backend build | PASS | `dotnet build Fokus.API.csproj --no-incremental -v quiet` | 0 errors, 13 warnings (all pre-existing, none in F31 files) |
-| Frontend build (vue-tsc + vite) | FAIL (pre-existing) | `npm run build` | 1 TS error in `SettingsView.vue:5` — `saveXraySettings` imported but not directly used. Confirmed pre-existing: same import line present in commit `8c75050` (before F31 implementation). Not introduced by F31. |
+| Frontend build (vue-tsc + vite) | FAIL (pre-existing) | `npm run build` | 1 TS error in `SettingsView.vue:5` — `saveXraySettings` imported but not directly used. Confirmed pre-existing: same import line present in commit `c3fc746` (before F31 implementation). Not introduced by F31. |
 | Debug artifacts backend | PASS | grep Console.WriteLine/TODO/HACK/FIXME | None found in modified files |
 | Debug artifacts frontend | PASS | grep console/TODO/HACK/FIXME | None found in modified files |
 | Plan step 1 (repo method) | PASS | Code review | `GetTestExecutionDataForTicketsAsync` implemented, 2-query bulk load, filters non-cancelled TEs, returns (testsLinks, blocksLinks, runsByTeId) tuple |

@@ -12,7 +12,7 @@ Run record: complete-suite record 2026-10-14T08:21:55Z, verdict pass (tree_hash 
 `.claude/test-times.json:8` — 33 timing keys reference the deleted `…ServiceTests` classes; no keys exist for the renamed classes. Fix: regenerate timings for the renamed tests and remove obsolete keys during close.
 
 ### [LOW] Code graph not refreshed
-`graphify-out/GRAPH_REPORT.md:14` — the graph still references commit `1fad3ecb` and moved service types. Fix: run `graphify update .` where graphify is installed.
+`graphify-out/GRAPH_REPORT.md:14` — the graph still references commit `df780f2a` and moved service types. Fix: run `graphify update .` where graphify is installed.
 
 ### [LOW] Duplicate effective-story-points helper in the repository
 `src/Services/Fokus/Fokus.Persistence/Repositories/TestExecutionRepository.cs:274` — `GetEffectiveSp` duplicates `TestCoverageCalculator` and the existing `SprintMembership.GetEffectiveSp` behaviour. Fix: have both callers use the existing membership method.
@@ -42,7 +42,7 @@ Carry-over refuted: `docs/architecture/v1.md:73` — the delta sentence remains 
 
 **Owner decision (2026-10-14) on the second reader's harness-gap offer**
 
-6. [owner] Extend the external golden harness in `<temp>\f39-golden` (never committed) so the comparison exercises the five paths only read so far (`review-second.md` § gap): a `last=0` request on qa-trends; at least 12 closed QA sprints (the `DeveloperQualityInputs` 12-sprint streak cap); an excluded developer who owns a ticket (`SubTeamFilter.FilterMemberships`); a QA run set where the pass-rate guard sees exactly one run; the "no activity" 404 in `GetDeveloperDetailEndpoint`. The base extracts were removed at Step 13: re-extract the base read-only with `git archive 5fe66f8` (Q1/D12 route), capture a new base and the current tree on the same UTC day, and `compare.sh` them → PASS. Then remove the extract again.
+6. [owner] Extend the external golden harness in `<temp>\f39-golden` (never committed) so the comparison exercises the five paths only read so far (`review-second.md` § gap): a `last=0` request on qa-trends; at least 12 closed QA sprints (the `DeveloperQualityInputs` 12-sprint streak cap); an excluded developer who owns a ticket (`SubTeamFilter.FilterMemberships`); a QA run set where the pass-rate guard sees exactly one run; the "no activity" 404 in `GetDeveloperDetailEndpoint`. The base extracts were removed at Step 13: re-extract the base read-only with `git archive 5fe66f8 (commit from the original private history)` (Q1/D12 route), capture a new base and the current tree on the same UTC day, and `compare.sh` them → PASS. Then remove the extract again.
 
 **Follow-up review:** none due — every leveled row is LOW; no step was built or redone. Re-check due (row 1 is a done-check item).
 

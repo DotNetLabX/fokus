@@ -304,7 +304,7 @@ None of the findings constitute a security vulnerability, data loss risk, or fun
 | Check | Result | Command | Output |
 |-------|--------|---------|--------|
 | TypeScript type check | PASS | `cd client && npx tsc --noEmit` | No output (exit 0) |
-| Vite build | PRE-EXISTING FAIL | `cd client && npm run build` | `SettingsView.vue(5,126): error TS6133: 'saveXraySettings' is declared but its value is never read.` — confirmed pre-existing from F25 commit `6c168f6`. F26 Phase 2 introduces no new compile errors. |
+| Vite build | PRE-EXISTING FAIL | `cd client && npm run build` | `SettingsView.vue(5,126): error TS6133: 'saveXraySettings' is declared but its value is never read.` — confirmed pre-existing from F25 commit `04b794a`. F26 Phase 2 introduces no new compile errors. |
 | Pre-existing build error confirmed | PASS | `git stash && npm run build` | Same `saveXraySettings` error present on F25 baseline. F26 does not introduce it. |
 | Tooltip audit | PASS | Read `help.tooltips.md`, `MetricCard.vue`, `QaMetricsSection.vue`, `SettingsView.vue:1207-1279` | All 12 tooltip strings match exactly |
 | hasQaData=false reachability | PASS | Read `GetQaMetricsEndpoint.cs:29-34`, `DashboardView.vue fetchQaMetrics call sites` | `BuildEmptyResponse` only when `!XrayEnabled`; frontend only calls when `xrayEnabled=true` — unreachable |

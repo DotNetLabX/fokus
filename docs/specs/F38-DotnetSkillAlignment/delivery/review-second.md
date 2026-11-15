@@ -2,7 +2,7 @@
 
 ## Step 2 — Code Review (second reader)
 
-Second reader, round: first review. Codex is the primary reader this round; this file is the Sonnet second reader's copy of the Step-2 review. The primary's section lives in `review.md` and was not read or edited here. Lane: architect-led fast lane; the hand-back addresses the architect. Diff: working tree against `main` (`main` equals `HEAD` at 1fad3ec, so `git diff HEAD` is the F38 delta) plus the untracked files under `src/` and `.claude/skills/`.
+Second reader, round: first review. Codex is the primary reader this round; this file is the Sonnet second reader's copy of the Step-2 review. The primary's section lives in `review.md` and was not read or edited here. Lane: architect-led fast lane; the hand-back addresses the architect. Diff: working tree against `main` (`main` equals `HEAD` at df780f2, so `git diff HEAD` is the F38 delta) plus the untracked files under `src/` and `.claude/skills/`.
 
 ## Reviewed By
 reviewer (second reader, read-only, single-pass three-axis checklist: simplicity/DRY, bugs/correctness, conventions)

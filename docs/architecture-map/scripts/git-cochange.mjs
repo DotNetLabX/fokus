@@ -1,8 +1,8 @@
 // Re-runs D1-25 / D1-26 / D1-27 from the repo root: node docs/architecture-map/scripts/git-cochange.mjs
-// Source: git log --no-merges --format=@@%h --name-only 6d95994 -- src client/src
+// Source: git log --no-merges --format=@@%h --name-only af34cde -- src client/src
 // Scope: client/src files and src .cs/.csproj files, excluding Migrations and Fokus.Tests.
 import { execFileSync } from 'node:child_process';
-const log = execFileSync('git', ['log', '--no-merges', '--format=@@%h', '--name-only', '6d95994', '--', 'src', 'client/src'], { encoding: 'utf8', maxBuffer: 1 << 26 });
+const log = execFileSync('git', ['log', '--no-merges', '--format=@@%h', '--name-only', 'af34cde', '--', 'src', 'client/src'], { encoding: 'utf8', maxBuffer: 1 << 26 });
 const commits = []; let cur = null;
 for (const l of log.split(/\r?\n/)) { if (l.startsWith('@@')) { cur = { h: l.slice(2), files: [] }; commits.push(cur); } else if (l.trim() && cur) cur.files.push(l.trim()); }
 const inScope = (f) => !f.includes('/Migrations/') && !f.includes('/Fokus.Tests/') && (f.startsWith('client/src/') || (f.startsWith('src/') && /[.](cs|csproj)$/.test(f)));

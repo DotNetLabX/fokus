@@ -9,7 +9,7 @@ No blocking defects found. Accepted the supplied complete-suite pass and Step 13
 
 - **LOW — Confirmed — [.claude/test-times.json:8](/.claude/test-times.json:8):** 33 timing keys reference deleted `…ServiceTests` classes; no renamed keys exist. **Fix:** regenerate timings for the renamed tests and remove obsolete keys during close.
 
-- **LOW — Confirmed — [GRAPH_REPORT.md:14](/graphify-out/GRAPH_REPORT.md:14):** The graph still references commit `1fad3ecb` and moved service types. **Fix:** run `graphify update .` where graphify is installed.
+- **LOW — Confirmed — [GRAPH_REPORT.md:14](/graphify-out/GRAPH_REPORT.md:14):** The graph still references commit `df780f2a` and moved service types. **Fix:** run `graphify update .` where graphify is installed.
 
 - **LOW — Confirmed — [TestExecutionRepository.cs:274](/src/Services/Fokus/Fokus.Persistence/Repositories/TestExecutionRepository.cs:274):** `GetEffectiveSp` duplicates `TestCoverageCalculator` and the existing `SprintMembership.GetEffectiveSp` behavior. **Fix:** have both callers use the existing membership method.
 
