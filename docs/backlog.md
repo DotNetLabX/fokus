@@ -293,7 +293,7 @@ Xray client (GraphQL + auth), domain model (TestExecution, TestExecutionLink, Te
 
 **F39:** Split the API-layer `*Service` classes (18, ~9,400 lines; 15 in Analytics) into pure Domain calculators (`domain-service` skill) and Application-layer orchestration in a new `Fokus.Application` project, shrinking the large services and endpoints. Reverses the root `CLAUDE.md` "no separate Application project" rule and the thin-domain note, by owner decision (2026-10-14). Behaviour is proven by an external before/after golden comparison on a seeded synthetic database (no new committed tests). Builds after F38 merges.
 
-| F40 | Publish Cleanup | In Progress | — (plan-only definition; records kept private) | — |
+| F40 | Publish Cleanup | Done | — (plan-only definition; records kept private) | — |
 
 ---
 
